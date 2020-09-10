@@ -3,9 +3,6 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
-# When the application is launched…
-
-
 def on_activate(app):
     # … create a new window…
     win = Gtk.ApplicationWindow(application=app)
