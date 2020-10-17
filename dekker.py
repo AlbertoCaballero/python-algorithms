@@ -1,3 +1,6 @@
+# Author: Alberto Caballero
+# Description: Dekker Algorithm implemented in Python
+
 # import multiprocessing library
 import multiprocessing as mp
 
