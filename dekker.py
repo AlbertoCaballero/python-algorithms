@@ -18,6 +18,7 @@ def threadOne():
     # while the tasks are not completed
     while not completed:
         threads[0] = True
+        print('Thread One', threads[0])
 
         # while the second thread wants to execute
         while threads[1] == True:
@@ -41,6 +42,7 @@ def threadTwo():
     # while tasks are not completed
     while not completed:
         threads[1] = True
+        print('Thread Two', threads[1])
         
         # check if thread one is executing
         while threads[0] == True:
