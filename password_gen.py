@@ -7,8 +7,8 @@ symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
 print("Welcome to the Pyssword Generator!")
 nr_letters = int(input("Letters: "))
-nr_symbols = int(input("Symbols: "))
 nr_numbers = int(input("Numbers: "))
+nr_symbols = int(input("Symbols: "))
 
 nr_total = nr_letters + nr_numbers + nr_symbols
 password_array = []
