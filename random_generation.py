@@ -14,3 +14,6 @@ def coin_toss ():
 
 coin_toss()
 
+hobbies = ["Coding", "Mechanics", "Algorithms", "Running", "Building"]
+print(random.choice(hobbies))
+
