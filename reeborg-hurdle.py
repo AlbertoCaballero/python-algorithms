@@ -23,3 +23,21 @@ while not at_goal():
     else:
         turn_left()
 
+# Edge cases
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+while not at_goal():
+    if front_is_clear():
+        move()
+    if right_is_clear():
+        if not front_is_clear():
+            turn_right()
+        else:
+            move()
+    else:
+        turn_left()
+
+
