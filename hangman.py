@@ -80,7 +80,7 @@ while state != word and turns != -1:
     guess = input("\nGuess your letter: ")
 
     if guess == word:
-        print("Win!")
+        print("Full match!")
         state = word
 
     if guess in word:
