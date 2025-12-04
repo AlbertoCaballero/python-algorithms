@@ -12,11 +12,10 @@ def jump():
     turn_right()
     move()
     turn_left()
-    
-obstacles = 6
-while obstacles > 0:
-    move()
-    jump()
-    obstacles -= 1
 
+while not at_goal():
+    if front_is_clear():
+        move()
+    elif wall_in_front():
+        jump()
 
