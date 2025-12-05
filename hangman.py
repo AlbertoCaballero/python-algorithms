@@ -15,7 +15,7 @@ def add_guess_to_state(current_state, letter):
             new_state[index] = letter
     return "".join(new_state)
 
-# Inserted: restore ASCII hangman art function
+# ASCII hangman art function
 def ascii_graphic(t):
     hangman_pics = ['''
   +---+
