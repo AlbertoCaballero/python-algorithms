@@ -77,7 +77,7 @@ while state != word and turns != -1:
     print(f"\nWord: {state}")
     print(f"Turns left: {turns}")
 
-    guess = input("\nGuess your letter: ")
+    guess = input("\nGuess your letter: ").lower()
 
     if guess == word:
         print("Full match!")
@@ -97,3 +97,4 @@ while state != word and turns != -1:
     if turns == -1:
         print("No! You lose!")
         print(f"The word was: {word}")
+
