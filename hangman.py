@@ -5,19 +5,17 @@ word_list = ["random", "word", "hangman"]
 word = random.choice(word_list)
 state = "_" * len(word)
 turns = 6
+guessed_letters = set()
 
-# Replace the correctlly guessed elements in state and return the new state
-def add_guess_to_state(letter):
-    new_state = state
-    if letter not in state:
-        indexes = []
-        for index, element in enumerate(word):
-            if element == letter:
-                indexes.append(index)
-        for i in indexes:
-            new_state = new_state[:i] + letter + new_state[i + 1:]
-    return new_state
+# Replace occurrences of `letter` in current_state using the target `word`
+def add_guess_to_state(current_state, letter):
+    new_state = list(current_state)
+    for index, element in enumerate(word):
+        if element == letter:
+            new_state[index] = letter
+    return "".join(new_state)
 
+# Inserted: restore ASCII hangman art function
 def ascii_graphic(t):
     hangman_pics = ['''
   +---+
@@ -69,32 +67,49 @@ def ascii_graphic(t):
  / \\  |
       |
 =========''']
-    return hangman_pics[6-t]
+    return hangman_pics[6 - t]
 
 # show user status of game
-while state != word and turns != -1:
-    print(f"{ascii_graphic(turns)}")
+while state != word and turns > 0:
+    print(ascii_graphic(turns))
     print(f"\nWord: {state}")
     print(f"Turns left: {turns}")
+    if guessed_letters:
+        print(f"Guessed: {', '.join(sorted(guessed_letters))}")
 
-    guess = input("\nGuess your letter: ").lower()
+    guess = input("\nGuess your letter (or full word): ").lower().strip()
+    if not guess:
+        print("Please enter a letter or a word.")
+        continue
 
+    # Full-word correct guess
     if guess == word:
-        print("Full match!")
         state = word
+        break
 
-    if guess in word:
-        print("Nice!")
-        state = add_guess_to_state(guess)
+    # Single-letter guesses
+    if len(guess) == 1:
+        if guess in guessed_letters:
+            print("You already guessed that letter.")
+            continue
+        guessed_letters.add(guess)
+        if guess in word:
+            state = add_guess_to_state(state, guess)
+            print("Nice!")
+        else:
+            print("Nope")
+            turns -= 1
     else:
+        # multi-letter wrong guess
         print("Nope")
         turns -= 1
 
-    if state == word:
-        print("Yes! You win!")
-        print(f"The word was: {word}")
-
-    if turns == -1:
-        print("No! You lose!")
-        print(f"The word was: {word}")
+# Final result
+if state == word:
+    print("Yes! You win!")
+    print(f"The word was: {word}")
+else:
+    print(ascii_graphic(0))
+    print("No! You lose!")
+    print(f"The word was: {word}")
 
