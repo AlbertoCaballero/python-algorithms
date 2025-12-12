@@ -4,6 +4,7 @@
 # - unless the year is also divisible by 400 with no remainder
 
 def is_leap_year(year):
+    """ This function takes a year and determines if is a leap year as True or False """
     divisible_by_four = (year % 4 == 0)
     evenly_div_by_hundred = (year % 100 != 0)
     unless_div_by_fourhundred = (year % 400 == 0)
