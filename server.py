@@ -33,7 +33,7 @@ def run():
     server_address = ('127.0.0.1', 8080)
     httpd = HTTPServer(server_address, RequestHandler)
     try:
-        print 'http server is running...'
+        print('http server is running...')
         httpd.serve_forever()
     except KeyboardInterrupt:
         httpd.socket.close()
