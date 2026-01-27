@@ -26,20 +26,18 @@
 #       break, because is no longer sequence
 #   it is a subsequences only if every letter in word has a match
 
-# s = "dsahjpjauf"
-# words = ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"]
-s = "abcde"
-words = ["a", "bb", "acd", "ace"]
+s = "dsahjpjauf"
+words = ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"] # answer: 2
+# s = "abcde"
+# words = ["a", "bb", "acd", "ace"] # answer: 3
 
 def is_subsequence(base_string = "", subsequence = ""):
-    index_holder = -1
     match_counter = 0
     trimed_string = base_string
     for letter in subsequence:
-        if letter in base_string[index_holder + 1:]:
-            if index_holder < base_string.index(letter):
-                index_holder = base_string.index(letter)
-                match_counter += 1
+        if letter in trimed_string:
+            match_counter += 1
+            trimed_string = trimed_string[trimed_string.index(letter) + 1:]
     return match_counter == len(subsequence)
 
 def count_subsequences(base_string, subsequences):
