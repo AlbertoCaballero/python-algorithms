@@ -38,6 +38,8 @@ def is_subsequence(base_string = "", subsequence = ""):
         if letter in trimed_string:
             match_counter += 1
             trimed_string = trimed_string[trimed_string.index(letter) + 1:]
+        else:
+            return False
     return match_counter == len(subsequence)
 
 def count_subsequences(base_string, subsequences):
