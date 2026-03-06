@@ -1,3 +1,4 @@
+import sys
 
 def fibonacci(n):
     if n <= 1:
@@ -5,5 +6,9 @@ def fibonacci(n):
     else:
         return(fibonacci(n-1) + fibonacci(n-2))
 
-for i in range(15):
-    print(fibonacci(i))
+iterations = 15
+if len(sys.argv) > 1:
+    iterations = sys.argv[1]
+
+for i in range(0, int(iterations), 1):
+    print(f"{i}: {fibonacci(i)}" )
