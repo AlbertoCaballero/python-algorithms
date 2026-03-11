@@ -51,6 +51,8 @@ def win_or_lose(d, p):
 
     if p_total > 21:
         print("===LOSE===")
+    elif d_total > 21:
+        print("===WIN===")
     elif d_total == p_total:
         print("===DRAW===")
     elif d_total > p_total:
