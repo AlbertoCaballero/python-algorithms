@@ -22,19 +22,18 @@ match difficulty:
         attempts = EASY
 
 random_number = random.randint(1, 100)
-print(random_number)
+# print(random_number)
 
-print("I'm thinking of a number bethween 1 and 100")
+print("I'm thinking of a number bethween 1 and 100\n")
 while attempts != 0:
     print(f"Attempts: {attempts}")
     guess = int(input("Take a guess: "))
     attempts -= 1
 
     if guess == random_number:
-        print("That's right!")
+        print("That's right!\n")
         attempts = 0
     elif guess > random_number:
-        print("To high!")
+        print("To high!\n")
     elif guess < random_number:
-        print("To low!")
-
+        print("To low!\n")
