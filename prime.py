@@ -1,7 +1,8 @@
-print(list(filter(lambda x:all(x % y != 0 for y in range(2, x)), range(2, 50))))
+#  print(list(filter(lambda x:all(x % y != 0 for y in range(2, x)), range(2, 50))))
 
-def isPrime(a):
-    if len([n for n in range(2, a) if a % n == 0]) == 1:
+def isPrime(num):
+    divisors = [n for n in range(1, num) if num % n == 0]
+    if len(divisors) == 1:
         return True
     return False
 
